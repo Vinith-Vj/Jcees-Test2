@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body class="overflow-x-hidden">
+    <div class="fixed top-0 z-10">
+        <div class="flex flex-col">
+                <div class="h-[100px] bg-white w-screen px-5 sm:px-20 flex justify-between items-center text-[12px] font-bold text-black/70">
+                    <div class="hidden md:flex gap-5">
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="/">HOME</a>
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">ABOUT US</a>
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">CONTACT US</a>
+                    </div>
+                    <img class="h-[100px]" src="{% static "images/jh.png" %}" alt="">
+
+                    <div class="fixed top-0 left-0 h-[270px] w-full bg-white px-5 py-2 text-black text-[12px] font-medium shadow-lg 
+                transform -translate-y-full transition-transform duration-300 ease-in-out flex flex-col gap-5" id="menu">
+                    <div class="flex justify-between items-center">
+                        <img class="h-[70px]" src="{% static 'images/jh.png' %}" alt="">
+                        <i class="ri-close-fill text-[25px]" id="closeIcon"></i>
+                    </div>
+                    <div class="flex flex-col gap-5 py-5">
+                        <a class="hover:text-white transition duration-300" href="">HOME</a>
+                        <a class="hover:text-white transition duration-300" href="#about">ABOUT US</a>
+                        <a class="hover:text-white transition duration-300" href="#services">SERVICES</a>
+                        <a class="hover:text-white transition duration-300" href="#contact">CONTACT US</a>
+                    </div>
+                </div>
+
+                <div class="flex md:hidden transition duration-300 text-black" id="menuIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>                          
+                </div>
+            </div>
+
+            
+
+            <div class="">
+                <img class="w-screen" src="{% static "images/bg-sldr.png" %}" alt="">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="mx-5 sm:mx-40 mt-30 sm:mb-20 sm:mt-30 con">
+        <div class="flex justify-center items-center">
+            <h1 class="text-3xl mb-5">{{ boat.name }}</h1>
+        </div>
+
+        <p class="text-black/60 mb-5">{{ boat.short_desc }}</p>
+
+        <div class="grid sm:grid-cols-2 gap-5 p-2 sm:p-5 bg-[#da900a] rounded-2xl mb-5">
+            <div>
+                <img class="rounded-2xl h-[320px] w-full" src="{{ boat.image.url }}" alt="">
+            </div>
+
+            <div>
+                <video class="h-full w-full rounded-2xl"  controls>
+                    <source class="h-full w-full rounded-2xl" src="{{ boat.video_link }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        {% for p in boat.about.all %}
+        
+            <p class="text-black/60 mb-5">{{ p.about }}</p>
+            
+        {% endfor %}
+
+        <div class="p-5 bg-[#da900a] rounded-2xl mb-5 flex flex-col justify-center items-center gap-3 text-white shadow-xl/30">
+            <h3 class="text-2xl">CONTACT FOR {{ boat.name }}  BOOKING & ENQUIRIES</h3>
+            <p class="font-bold">Jc'S House Boathouse</p>
+            <p>ASHTAMUDI LAKE, Opposite KSRTC bus stand, Kollam, Kerala 691001</p>
+
+            <div class="grid sm:grid-cols-3 gap-3 place-items-center">
+                <p class="font-bold">Call : + 91 98956 12402, +91 7025089900</p>
+                <p class="font-bold">WhatsApp : +91 91 98956 12402</p>
+                <p class="font-bold">Email : jcholidayskollam@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="mx-5 sm:mx-40 mt-10 sm:mb-20 sm:mt-10 con">
+        <h2 class="text-3xl mb-5">{{ boat.name }} TOUR PACKAGES</h1>
+        
+        {% for p in boat.tour_about.all %}
+        <p class="text-black/60 mb-5">{{ p.about_tour_place }}</p>
+        {% endfor %}
+        
+        <div class="grid sm:grid-cols-3 gap-3">
+            {% for p in packages %}
+                <div class="p-5 shadow-2xl rounded-2xl flex flex-col gap-3">
+                    <img class="h-[200px] w-full rounded-tl-2xl rounded-tr-2xl" src="{{ p.thumbnail.url }}" alt="">
+
+                    <h3 class="text-lg font-bold text-black/60">{{ p.package_name }}</h3>
+
+                    <div class="flex flex-col gap-2 text-black/60 text-[13px]">
+                        <p>ITINERARY</p>
+                        {% for b in p.durations.all %}
+                            <p>DURATION: {{ b.duration }}</p>
+                            <p>Check In Time: {{ b.start_time }}</p>
+                            <p>Check Out Time: {{ b.end_time }}</p>
+                        {% endfor %}
+                        
+                        {% for c in p.start_end_points.all %}
+                            <p>Check In Point: {{ c.starting_point }}</p>
+                            <p>Check Out Point: {{ c.ending_point }}</p>
+                        {% endfor %}
+                        
+                        <p>Places Covering : {{p.places_covering}} </p>
+
+                        {% for d in p.food_styles.all %}
+                            <p>Food: {{ d.food_style }}</p>
+                        {% endfor %}
+                    </div>
+                    <a class="flex justify-center items-center px-2 py-1 text-white bg-orange-500 font-bold rounded hover:scale-101 transition duration-300" href="{% url 'package' slug=p.slug %}">
+                        MORE TOUR DETAILS
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+    
+
+    <div class="mx-5 sm:mx-40 mt-10 sm:mb-20 sm:mt-10 con">
+        <h2 class="text-3xl mb-5">FAQ ABOUT {{ boat.name }}</h2>
+
+        {% for p in boat.boat_faq.all %}
+        
+            <div class="flex flex-col gap-1 text-black/60 mb-5">
+                <p class="font-bold">{{ p.question }}</p>
+                <p>{{ p.answer }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126117.90033045832!2d76.51847878745095!3d8.95515108872361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fdbb69f5a623%3A0xa28e3beb592ce94b!2sAshtamudi%20Lake!5e0!3m2!1sen!2sin!4v1745054151739!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    <footer class="px-10 sm:px-40 py-10 bg-[#0a0b0bb8] text-white grid sm:grid-cols-2 gap-3">
+        <img class="h-[200px]" src="{% static "images/jh.png" %}" alt="">
+        <div class="flex flex-col gap-2">
+            <div class="flex">
+                <div class=" px-3 py-1 border border-white/50 rounded-2xl">
+                    <a href="https://wa.me/9895612402" target="_blank" class="flex justify-center items-center gap-2">
+                        <i class="ri-whatsapp-line text-[30px]"></i>
+                        <p class="font-bold">WhatsApp</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" px-3 py-1 border border-white/50 rounded-2xl">
+                    <a href="https://wa.me/9895612402" target="_blank" class="flex justify-center items-center gap-2">
+                        <i class="ri-phone-line text-[30px]"></i>
+                        <p class="font-bold">Phone</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" px-3 py-1 border border-white/50 rounded-2xl">
+                    <div class="flex justify-center items-center gap-2">
+                        <i class="ri-mail-send-line text-[30px]"></i>
+                        <p class="font-bold">jcholidayskollam@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+</html>

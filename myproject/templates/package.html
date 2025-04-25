@@ -1,0 +1,211 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    
+    <div class="fixed top-0 z-10">
+        <div class="flex flex-col">
+                <div class="h-[100px] bg-white w-screen px-5 sm:px-20 flex justify-between items-center text-[12px] font-bold text-black/70">
+                    <div class="hidden md:flex gap-5">
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="/">HOME</a>
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">ABOUT US</a>
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">CONTACT US</a>
+                    </div>
+                    <img class="h-[100px]" src="{% static "images/jh.png" %}" alt="">
+
+                    <div class="fixed top-0 left-0 h-[270px] w-full bg-white px-5 py-2 text-black text-[12px] font-medium shadow-lg 
+                transform -translate-y-full transition-transform duration-300 ease-in-out flex flex-col gap-5" id="menu">
+                    <div class="flex justify-between items-center">
+                        <img class="h-[70px]" src="{% static 'images/jh.png' %}" alt="">
+                        <i class="ri-close-fill text-[25px]" id="closeIcon"></i>
+                    </div>
+                    <div class="flex flex-col gap-5 py-5">
+                        <a class="hover:text-white transition duration-300" href="">HOME</a>
+                        <a class="hover:text-white transition duration-300" href="#about">ABOUT US</a>
+                        <a class="hover:text-white transition duration-300" href="#services">SERVICES</a>
+                        <a class="hover:text-white transition duration-300" href="#contact">CONTACT US</a>
+                    </div>
+                </div>
+
+                <div class="flex md:hidden transition duration-300 text-black" id="menuIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>                          
+                </div>
+            </div>
+
+            
+
+            <div class="">
+                <img class="w-screen" src="{% static "images/bg-sldr.png" %}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-5 sm:mx-40 mt-30 sm:mb-10 sm:mt-30 con">
+        <h1 class="text-3xl mb-5">{{ package.package_name }}</h1>
+
+        <img class="h-[300px] sm:h-[500px] w-screen" src="{{ package.thumbnail.url }}" alt="">  
+    </div>
+
+    <div class="mx-5 sm:mx-40 mt-10 sm:mb-20 sm:mt-10 con">
+
+        <div class="flex flex-col gap-8">
+
+            <div class="flex flex-col gap-3">
+                <h5 class="font-bold con text-xl text-black/60">OVERVIEW</h5>
+        
+                <div class="flex flex-col gap-1 text-black/60">
+                    <p>{{ package.short_overview }}</p> 
+                    <p><span class="font-bold">Places Covering</span> : {{ package.places_covering }}</p>
+                    <span class="font-bold">Main Attractions  </span>  
+                    {% for p in package.main_attraction.all  %}
+                        <p>{{ p.main_attraction }}</p>
+                    {% endfor %}
+
+
+                    <div class="flex flex-col mx-10">
+                        <ul class="list-disc">
+
+                            {% for p in package.attraction_bullet_points.all %}
+                            <li>{{ p.text }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <h5 class="font-bold con text-xl text-black/60">ITINERARY</h5>
+
+                <div class="flex flex-col gap-1 text-black/60">
+                    {% for p in package.itinerary_desc.all %}
+                        <p>{{ p.short_description }}</p>
+                    {% endfor %}
+
+                    {% for p in package.itinerary_items.all %}
+                        <p><span class="font-bold">{{ p.time }}</span> {{ p.plan }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <h5 class="font-bold con text-xl text-black/60">FOOD MENU</h5>
+
+                <div class="flex flex-col gap-3 text-black/60">
+                    {% for p in package.food_styles.all %}
+                        <p class="font-bold">{{ p.food_style }}</p>
+                    {% endfor %}
+                    <div>
+                        {% for p in package.foodtiming.all %}
+                            <p class="font-bold">{{p.time}}</p>
+                            <p>{{p.food|linebreaks}}</p>
+                            <div class="mb-2"></div>
+                        {% endfor %}
+                    </div>
+
+                    <div>
+                        <p class="font-bold">Notes:</p>
+                        <div class="flex flex-col mx-10">
+                            <ul class="list-disc">
+
+                                {% for p in package.food_bullet_points.all %}
+                                    <li>{{ p.text }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex flex-col gap-3">
+                <h5 class="font-bold con text-xl text-black/60">PRICE</h5>
+                <div>
+                    <p class="font-bold text-black/60">Contact us for the best price and deals.</p>
+                    <p class="font-bold text-black/60">Call : + 91 98956 12402, +91 7025089900</p>
+                    <p class="font-bold text-black/60">WhatsApp : +91 91 98956 12402</p>
+                    <p class="font-bold text-black/60">Email : jcholidayskollam@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3 text-black/60">
+                <h5 class="font-bold con text-xl text-black/60">ACTIVITY SCHEDULE</h5>
+
+                <div class="flex flex-col gap-2">
+                    <div>
+                        <p class="font-bold">WHEN DOES IT RUN?</p>
+
+                        {% for p in package.run.all %}
+                            <p>{{ p.when_does_it_run }}</p>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <p class="font-bold">DURATION</p>
+                        {% for p in package.durations.all %}
+                            <p>{{ p.duration }}</p>
+                            <p>Start time : {{ p.start_time }}</p>
+                            <p>End time : {{ p.end_time }}</p>
+                        {% endfor %}
+                    </div>
+                    {% for p in package.start_end_points.all %}
+                        <div>
+                            <p class="font-bold">TOUR STARTING POINT</p>
+                            <p>{{ p.starting_point }}</p>
+                        </div>
+
+                        <div>
+                            <p class="font-bold">ENDING POINT</p>
+                            <p>{{ p.ending_point }}</p>
+                        </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3 text-black/60">
+                <h5 class="font-bold con text-xl text-black/60">INCLUSIONS</h5>
+
+                <div class="flex flex-col mx-5">
+                    <ul class="list-disc">
+                        {% for p in package.inclusion.all %}
+                            <li>{{ p.bullet_points }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3 text-black/60">
+                <h5 class="font-bold con text-xl text-black/60">EXCLUSIONS</h5>
+
+                <div class="flex flex-col mx-5">
+                    <ul class="list-disc">
+                        {% for p in package.exclusions.all %}
+                            <li>{{ p.bullet_points }}</li>
+                        {% endfor %}
+                </div>
+
+                {% for p in package.goodtoknow.all %}
+                <p><span class="font-bold">Good to Know</span> : {{ p.good_to_know }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static "js/main.js" %}"></script>
+</body>
+</html>
