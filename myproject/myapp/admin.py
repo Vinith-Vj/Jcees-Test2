@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Boat ,AboutDistrictAndService ,TourPackagesSection,BoatFAQ ,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow
+from .models import Boat ,AboutDistrictAndService ,TourPackagesSection,BoatFAQ ,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow, PackageImage
 
 # Register your models here.
 
@@ -19,6 +19,10 @@ class BoatAdmin(admin.ModelAdmin):
     inlines =[AboutDistrictAndServiceInline, TourPackagesSectionInline, BoatFAQInline]
 
 admin.site.register(Boat, BoatAdmin)
+
+class PackageImageInline(admin.TabularInline):
+    model = PackageImage
+    extra = 1
 
 class MainAttractionInline(admin.TabularInline):
     model = MainAttraction
@@ -75,7 +79,7 @@ class GoodToKnowInline(admin.TabularInline):
     extra = 1
 
 class AttractionAdmin(admin.ModelAdmin):
-    inlines = [MainAttractionInline, AttractionBulletInline,  ItenerarySectionInline, ItineraryItemInline, FoodStyleInline, FoodTimingInline, FoodBulletInline, WhenDoesItRunInline, DurationInline, StartAndEndingPointsInline, InclusionInline, ExclusionInline, GoodToKnowInline]
+    inlines = [PackageImageInline, MainAttractionInline, AttractionBulletInline,  ItenerarySectionInline, ItineraryItemInline, FoodStyleInline, FoodTimingInline, FoodBulletInline, WhenDoesItRunInline, DurationInline, StartAndEndingPointsInline, InclusionInline, ExclusionInline, GoodToKnowInline]
 
 admin.site.register(BoatingPackage, AttractionAdmin)
 

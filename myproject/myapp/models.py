@@ -50,6 +50,10 @@ class BoatingPackage(models.Model):
     def __str__(self):
         return self.package_name
     
+class PackageImage(models.Model):
+    package = models.ForeignKey(BoatingPackage, related_name='package_images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='package_images/')
+    
 class MainAttraction(models.Model):
     section = models.ForeignKey(BoatingPackage, on_delete=models.CASCADE, related_name='main_attraction')
     main_attraction = models.TextField()

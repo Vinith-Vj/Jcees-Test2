@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="{% static "css/main.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
@@ -58,7 +61,16 @@
     <div class="mx-5 sm:mx-40 mt-30 sm:mb-10 sm:mt-30 con">
         <h1 class="text-3xl mb-5">{{ package.package_name }}</h1>
 
-        <img class="h-[300px] sm:h-[500px] w-screen" src="{{ package.thumbnail.url }}" alt="">  
+        <div class="swiper mySwiper h-[300px] sm:h-[500px]">
+            <div class="swiper-wrapper">
+              {% for image in package.package_images.all %}
+                <div class="swiper-slide">
+                  <img class="object-cover w-full h-full" src="{{ image.image.url }}" alt="">
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+        {% comment %} <img class="h-[300px] sm:h-[500px] w-screen" src="{{ package.thumbnail.url }}" alt="">   {% endcomment %}
     </div>
 
     <div class="mx-5 sm:mx-40 mt-10 sm:mb-20 sm:mt-10 con">
@@ -206,6 +218,45 @@
     </div>
 
 
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="{% static "js/main.js" %}"></script>
+
+
+    
+    <script>
+        window.addEventListener('load', function () {
+          const slideCount = document.querySelectorAll('.swiper-slide').length;
+      
+          const swiper = new Swiper(".mySwiper", {
+            loop: slideCount > 1, // ✅ Only loop if >1 slide
+            autoplay: {
+              delay: 2500,
+              disableOnInteraction: false,
+            },
+            slidesPerView: 1,
+            spaceBetween: 10,
+            breakpoints: {
+              640: {
+                slidesPerView: Math.min(2, slideCount),
+              },
+              1024: {
+                slidesPerView: Math.min(3, slideCount),
+              },
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+          });
+        });
+    </script>
+      
+               
 </body>
 </html>
