@@ -117,25 +117,25 @@
 
 
     <div class="mx-5 sm:mx-40 mt-30 sm:mb-20 sm:mt-30 head">
-        <div class="grid sm:grid-cols-2 gap-5">
+        <div class="flex flex-col sm:grid sm:grid-cols-2 gap-5">
             <div>
                 <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Gallery</h1>
                 <p class="text-[25px] sm:text-[40px] heading mb-5">A Glimpse of Heaven</p>
 
-                <swiper-container class="mySwiper" 
-                centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                <swiper-container class="mySwiper"
+                autoplay-delay="2500" autoplay-disable-on-interaction="false">
 
-                    <swiper-slide><img src="{% static 'images/img-17.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-18.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-19.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-20.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-21.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-17.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-18.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-19.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-20.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-21.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
                 </swiper-container>
             </div>
             
             <div class="flex flex-col gap-5">
-                <img src="{% static 'images/img-22.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl">
-                <img src="{% static 'images/img-18.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl">
+                <img src="{% static 'images/img-22.jpg' %}" alt="Image" class="rounded-2xl">
+                <img src="{% static 'images/img-18.jpg' %}" alt="Image" class="rounded-2xl">
             </div>
         </div>
     </div>
@@ -437,10 +437,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="{% static "js/main.js" %}"></script>
-
-
-
-
-    
 </body>
 </html>
