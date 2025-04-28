@@ -33,3 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("testimonialContainer");
+    let index = 0;
+    
+    function nextSlide() {
+        index = (index + 1) % 3; // Change 3 to the number of testimonials
+        container.style.transform = `translateX(-${index * 100}%)`;
+    }
+    
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("keralaCarousal");
+    let index = 0;
+    
+    function nextSlide() {
+        index = (index + 1) % 3; // Change 3 to the number of testimonials
+        container.style.transform = `translateX(-${index * 100}%)`;
+    }
+    
+    setInterval(nextSlide, 5000); // Change slide every 3 seconds
+});

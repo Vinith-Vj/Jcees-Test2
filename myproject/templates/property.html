@@ -1,0 +1,446 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="fixed top-0 z-50">
+        <div class="flex flex-col">
+                <div class="h-[100px] bg-white w-screen px-5 sm:px-20 flex justify-between items-center text-[12px] font-bold text-black/70">
+                    <div class="hidden md:flex gap-5">
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="/">HOME</a>
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">ABOUT US</a>
+                        <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">CONTACT US</a>
+                    </div>
+                    <img class="h-[100px]" src="{% static "images/jh.png" %}" alt="">
+
+                    <div class="fixed top-0 left-0 h-[270px] w-full bg-white px-5 py-2 text-black text-[12px] font-medium shadow-lg 
+                transform -translate-y-full transition-transform duration-300 ease-in-out flex flex-col gap-5" id="menu">
+                    <div class="flex justify-between items-center">
+                        <img class="h-[70px]" src="{% static 'images/jh.png' %}" alt="">
+                        <i class="ri-close-fill text-[25px]" id="closeIcon"></i>
+                    </div>
+                    <div class="flex flex-col gap-5 py-5">
+                        <a class="hover:text-white transition duration-300" href="">HOME</a>
+                        <a class="hover:text-white transition duration-300" href="#about">ABOUT US</a>
+                        <a class="hover:text-white transition duration-300" href="#services">SERVICES</a>
+                        <a class="hover:text-white transition duration-300" href="#contact">CONTACT US</a>
+                    </div>
+                </div>
+
+                <div class="flex md:hidden transition duration-300 text-black" id="menuIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>                          
+                </div>
+            </div>
+
+            
+
+            <div class="">
+                <img class="w-screen" src="{% static "images/bg-sldr.png" %}" alt="">
+            </div>
+        </div>
+    </div>
+
+
+
+    {% comment %} <img src="{% static "images/img-15.jpeg" %}" class="h-screen w-screen" alt=""> {% endcomment %}
+
+    <div class="relative">
+        <!-- Background Image -->
+        <img src="{% static "images/img-15.jpeg" %}" alt="Background" class="w-full h-screen object-cover">
+      
+        <!-- Gradient Overlay -->
+        <div class="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-b from-transparent to-[#48694a]">
+
+        </div>
+      </div>
+      
+      <!-- Text Content -->
+      <div class="bg-[#48694a] text-white text-center p-8">
+        <h1 class="text-3xl font-bold mb-4">Welcome to JC'S DALE POOL VILLA</h1>
+        <p class="max-w-2xl mx-auto">
+            "Nestled in the heart of Tangasseri, our centuries-old ancestral home is surrounded by lush coconut palms and the shimmering turquoise waters of the Arabian Sea. This charming coastal town, affectionately known as Tangy, sits at the southern tip of Kollam (Quilon) in Kerala, South India. Tangasseri (or Thangassery) offers a unique glimpse into Kerala’s rich heritage—God’s Own Country—where winding streets, fresh seafood, and warm-hearted locals create an unforgettable experience. Just a short walk from Tangasseri’s historic churches and its iconic lighthouse, JC Dale Pool Villa provides the perfect getaway for both short and long stays. Come and experience the essence of The Good Life at Tangy with us!"
+        </p>
+    </div>
+
+
+
+
+    <div class="mx-5 sm:mx-40 mt-30 sm:mb-20 sm:mt-30 head">
+        <div class="grid sm:grid-cols-3 gap-5">
+            <div class="col-span-1">
+                {% comment %} <img src="{% static "images/img-16.jpeg" %}" class="rounded-2xl h-[550px] w-full bg-cover object-cover" alt=""> {% endcomment %}
+
+                <video autoplay muted loop class="rounded-2xl h-[550px] w-full bg-cover object-cover">
+                    <source src="{% static "images/bg-vid-2.MOV" %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="flex flex-col justify-center col-span-2">
+                
+                <h2 class="text-4xl font-bold head mb-5 ">Heritage Haven</h2>
+                <p class="">Our newly renovated and generously sized home accommodates up to 6 guests and includes:</p>
+                <ul class="list-disc list-inside space-y-2 text-black/60 p-5 con">
+                    <li>3 comfortable air-conditioned bedrooms</li>
+                    <li>3 modern bathrooms</li>
+                    <li>A fully equipped main kitchen</li>
+                    <li>A spacious living and dining area perfect for relaxing and entertaining</li>
+                    <li>Laundry facilities including a washing machine for a hassle-free stay</li>
+                </ul>
+
+                <p class="text-black/60">"Step outside and enjoy the serene front and backyard, both fully enclosed for your security, with convenient parking space for up to two vehicles. Whether you're looking for a quiet getaway or a comfortable extended stay in this charming coastal town, Mavil Lodge provides the perfect setting for relaxation and peace."</p>
+
+                <p class="mt-5 font-bold">We eagerly await the opportunity to welcome you!</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mx-5 sm:mx-40 mt-30 sm:mb-20 sm:mt-30 head">
+        <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+                <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Gallery</h1>
+                <p class="text-[25px] sm:text-[40px] heading mb-5">A Glimpse of Heaven</p>
+
+                <swiper-container class="mySwiper" 
+                centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+
+                    <swiper-slide><img src="{% static 'images/img-17.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-18.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-19.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-20.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
+                    <swiper-slide><img src="{% static 'images/img-21.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl"></swiper-slide>
+                </swiper-container>
+            </div>
+            
+            <div class="flex flex-col gap-5">
+                <img src="{% static 'images/img-22.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl">
+                <img src="{% static 'images/img-18.jpg' %}" alt="Image" class="w-full h-auto rounded-2xl">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-[#eee4e3] py-30" id="services">
+        <div class="mx-5 sm:mx-20">
+            <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Exclusive Amenities</h1>
+            <p class="text-[25px] sm:text-[40px] heading">Exceptional Amenities for an Unforgettable Stay</p>
+
+            <div class="grid sm:grid-cols-4 mt-10 gap-5">
+                <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
+                    <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="{% static "images/img-21.jpg" %}" alt="">
+                    <p class="text-[23px] sm:text-[26px] roboto">Pool</p>
+                </div>
+                <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
+                    <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                    <p class="text-[23px] sm:text-[26px] roboto">In-House Gym</p>
+                </div>
+                <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
+                    <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="{% static "images/img-22.jpg" %}" alt="">
+                    <p class="text-[23px] sm:text-[26px] roboto">Fine Dining</p>
+                </div>
+                <div class="flex flex-col justify-end gap-5 h-full w-full sm:pr-3">
+                    <p class="roboto text-black/50">Enjoy premium comforts and top-notch facilities designed for a perfect stay.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="mx-5 sm:mx-20 my-20 bg-[url(/static/images/img-19.jpg)] bg-fixed h-[450px] bg-cover bg-center rounded-2xl text-white p-5 flex justify-center items-center">
+        <div class="grid sm:grid-cols-2 gap-5 sm:gap-0">
+            <div class="flex flex-col">
+                <h4 class="text-[35px] sm:text-[40px] heading">Start Your Luxurious Experience Today</h4>
+            </div>
+            <div class="flex flex-col justify-end">
+                <div class="flex gap-5">
+                    <i class="ri-facebook-circle-fill text-[25px]"></i>
+                    <i class="ri-instagram-line text-[25px]"></i>
+                    {% comment %} <i class="ri-youtube-line text-[25px]"></i> {% endcomment %}
+                    <a href="https://wa.me/9895612402" target="_blank" class="flex gap-2 items-center"><i class="ri-whatsapp-line text-[25px]"></i></a>
+                </div>
+                <p>At JC Dale Pool, we blend comfort, elegance, and nature to give you a stay like no other. Our handcrafted wooden interiors, tranquil surroundings, and warm hospitality ensure every guest enjoys a peaceful and memorable escape. Whether you're here to relax or explore, luxury begins the moment you arrive.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-[#eee4e3] py-10 sm:py-30">
+        <div class="relative mx-5 sm:mx-20">
+            <div class="flex flex-col gap-96 sm:gap-40">
+                <div class="flex justify-between">
+                    <img class="sm:h-[270px] sm:w-[270px] h-[100px] w-[150px] rounded-2xl object-cover" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="">
+
+                    <img class="h-[130px] w-[190px] sm:h-[230px] sm:w-[370px] rounded-2xl object-cover" src="https://images.pexels.com/photos/5774001/pexels-photo-5774001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                </div>
+
+                <div class="flex justify-between">
+                    <img class="h-[130px] w-[190px] sm:h-[230px] sm:w-[370px] rounded-2xl object-cover" src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+
+                    <img class="sm:h-[270px] sm:w-[270px] h-[100px] w-[150px] rounded-2xl object-cover" src="https://images.pexels.com/photos/7783364/pexels-photo-7783364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                </div>
+
+                <div class="absolute flex flex-col h-full justify-center items-center sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 text-center">
+                    <div class="flex flex-col gap-3 sm:gap-10">
+                        <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Dining</h1>
+                        <p class="text-[25px] sm:text-[60px] heading">A Culinary Journey ofElegance & Flavor</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac ligula vel justo suscipit eleifend. </p>
+                        <div class="flex justify-center items-center">
+                            <div class=" mt-10 roboto px-5 py-2 bg-green-500/30 font-medium text-black/80 rounded-full text-center hover:bg-blue-50 hover:text-black duration-300 animate-bounce">
+                                <a class="" href="#">See Menu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="mx-5 sm:mx-20 my-20">
+        <div class="grid sm:grid-cols-2 gap-5">
+            <div class="flex flex-col justify-between">
+                <div class="flex flex-col">
+                    <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Guest Testimonials</h1>
+                    <p class="text-[25px] mb-3 sm:mb-0 sm:text-[40px] heading">Our Guests Love Their Stay—See Why!</p>
+                </div>
+                <p class="text-black/50 mb-3 sm:mb-0">At JC Dale Pool, we take pride in creating unforgettable stays for our guests. Whether visiting for relaxation or adventure, guests consistently praise the warm hospitality, attention to detail, and peaceful atmosphere of our homestay. From personalized service to spotless accommodations, every aspect of their experience is designed with comfort in mind. Our well-maintained pool, scenic surroundings, and thoughtful amenities provide the perfect balance of luxury and homeliness. The glowing testimonials we receive reflect our commitment to making each guest feel valued, relaxed, and eager to return.</p>
+                <div class=" w-full overflow-hidden">
+                    <div id="testimonialContainer" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Testimonial 1 -->
+                        <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
+                            <p class="text-lg italic">"Amazing experience! Loved every moment!"</p>
+                            <h3 class="mt-2 font-bold">- John Doe</h3>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
+                            <p class="text-lg italic">"Great service and wonderful ambiance!"</p>
+                            <h3 class="mt-2 font-bold">- Jane Smith</h3>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
+                            <p class="text-lg italic">"I will definitely come back again!"</p>
+                            <h3 class="mt-2 font-bold">- Alex Johnson</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                {% comment %} <img class="h-[400px] sm:h-[600px] w-full rounded-2xl object-cover" src="https://images.pexels.com/photos/16866482/pexels-photo-16866482/free-photo-of-holidays-tropical-resort.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""> {% endcomment %}
+
+                <img class="h-[400px] sm:h-[600px] w-full rounded-2xl object-cover" src="{% static "images/img-23.jpg" %}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="relative bg-[url(https://images.mercuryholidays.co.uk/cms/36796/44631942-kerala-private-tours.jpg?w=1920)] bg-fixed bg-cover bg-center bg-no-repeat py-1">
+        <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+        <div class="mx-5 sm:mx-20 my-10 text-white relative z-10">
+            <p class="text-[25px] sm:text-[40px] heading mb-5 font-bold">Discover Kerala</p>
+
+            <div class="grid sm:grid-cols-2 gap-5 sm:gap-10">
+                <div class="flex flex-col gap-1">
+                    <h5 class="font-bold roboto font text-[20px]">Why Choose Kerala ?</h5>
+                    <p class="text-white/80">Kerala, known as God’s Own Country, is a paradise of lush green landscapes, serene backwaters, pristine beaches, and rich cultural heritage. Whether you seek adventure in the Western Ghats, a relaxing houseboat cruise in Alleppey, or the vibrant festivals and delicious cuisine, Kerala offers a unique and unforgettable travel experience.</p>
+                </div>
+                <div class="flex flex-col gap-1">
+                    <h5 class="font-bold roboto font text-[20px]">Why Choose Tangasseri ?</h5>
+                    <p class="text-white/80">Tangasseri, a charming coastal town in Kerala, is a hidden gem rich in history, culture, and scenic beauty. Known for its iconic lighthouse, historic churches, and serene beaches, this quaint destination offers a perfect blend of heritage and tranquility. Whether you're exploring its colonial past or enjoying the fresh seafood and warm hospitality, Tangasseri promises a unique and memorable experience.</p>
+                </div>
+            </div>
+
+            <div class=" w-full overflow-hidden my-10">
+                <div id="keralaCarousal" class="flex transition-transform duration-500 ease-in-out">
+                    
+                    <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5">
+                        <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://content.r9cdn.net/rimg/dimg/a9/dd/d6b29241-city-44818-166a7453734.jpg?width=1200&height=630&xhint=1600&yhint=1049&crop=true" alt="">
+                        <div>
+                            <h5 class="font-bold roboto font text-[20px]">Munnar</h5>
+                            <p class="text-white/80">Munnar, a picturesque hill station in Kerala, is known for its lush tea plantations, misty mountains, and serene landscapes. Nestled in the Western Ghats, it offers breathtaking views, cascading waterfalls, and rich biodiversity. Visitors can explore Eravikulam National Park, trek to Anamudi Peak, or simply unwind amidst the cool, refreshing climate. Whether you're a nature lover or an adventure seeker, Munnar is a perfect retreat for a peaceful getaway</p>
+                        </div>
+                    </div>
+                    
+                    <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5 ">
+                        <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Alappuzha_Boat_Beauty_W.jpg" alt="">
+                        <div>
+                            <h5 class="font-bold roboto font text-[20px]">Alleppey (Alappuzha)</h5>
+                            <p class="text-white/80">Alleppey, also known as Alappuzha, is famous for its enchanting backwaters, houseboat cruises, and scenic beauty. Often called the "Venice of the East," this serene destination offers a unique experience of Kerala’s tranquil waterways lined with lush coconut palms and quaint villages. Visitors can enjoy a relaxing boat ride, witness the iconic Nehru Trophy Boat Race, and indulge in delicious Kerala seafood. Whether you're seeking peace or adventure, Alleppey is a must-visit destination.</p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5 ">
+                        <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://media1.thrillophilia.com/filestore/iyhdsi3ipex60his53wn4duhig2r_shutterstock_1688004694.jpg?w=400&dpr=2" alt="">
+                        <div>
+                            <h5 class="font-bold roboto font text-[20px]">Kochi (Cochin)</h5>
+                            <p class="text-white/80">Kochi, also known as Cochin, is a vibrant port city that blends history, culture, and modernity. Known as the Queen of the Arabian Sea, Kochi boasts colonial-era architecture, bustling markets, and stunning waterfront views. Visitors can explore the iconic Chinese fishing nets, Fort Kochi’s charming streets, the historic Mattancherry Palace, and the lively Jew Town. With its rich spice trade heritage and diverse culinary scene, Kochi offers an unforgettable experience for travelers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-5 sm:mx-20 my-10" id="contact">
+        <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">CONTACT US</h1>
+        <p class="text-[25px] sm:text-[40px] heading mb-10">Book Your Stay – Experience Comfort & Luxury</p>
+
+        <div class="grid sm:grid-cols-3">
+            <div class="col-span-2">
+                <div class="flex flex-col gap-5">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div class="flex flex-col sm:flex-row gap-5">
+                            <div class="w-full">
+                                <label for="first-name" class="block text-sm/6 font-semibold text-gray-900">First name</label>
+                                <div class="mt-2.5">
+                                <input type="text" name="first-name" id="first-name" placeholder="Bruno" autocomplete="given-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <label for="last-name" class="block text-sm/6 font-semibold text-gray-900">Last name</label>
+                                <div class="mt-2.5">
+                                <input type="text" name="last-name" id="last-name" placeholder="Mars" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
+                            <div class="mt-2.5">
+                                <input type="email" name="email" id="email" placeholder="example123@gmail.com" autocomplete="email" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div class="flex gap-5"> 
+                            <div class="border-b border-r-0 sm:border-b-0 sm:border-r border-white/30 w-full">
+                                <p class="mb-2 block text-sm/6 font-semibold text-gray-900">Check In</p>
+                                <div class="relative max-w-sm">
+                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 1 0 0-2Z"/>
+                                        </svg>
+                                    </div>
+                                    <input id="checkin-date" type="text" class="bg-transparent border text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full ps-10 p-2.5 border-black/20" placeholder="Select date">
+                                </div>
+                            </div>
+                            <div class="border-b border-r-0 sm:border-b-0 sm:border-r border-white/30 w-full">
+                                <p class="mb-2 block text-sm/6 font-semibold text-gray-900">Check Out</p>
+                                <div class="relative max-w-sm">
+                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 1 0 0-2Z"/>
+                                        </svg>
+                                    </div>
+                                    <input id="checkin-date" type="text" class="bg-transparent border text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full ps-10 p-2.5 border-black/20" placeholder="Select date">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="flex gap-5">
+                            <div class="w-full">
+                                <label for="guests" class="block text-sm/6 font-semibold text-gray-900">Number of Guest's</label>
+                                <div class="mt-2.5">
+                                    <input type="email" name="email" id="email" placeholder="eg:5" autocomplete="guests" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <label for="phn" class="block text-sm/6 font-semibold text-gray-900">Phone no</label>
+                                <div class="mt-2.5">
+                                    <input type="email" name="email" id="email" placeholder="+91 7373069866" autocomplete="phn" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    
+                    <div class="w-full">
+                        <label for="message" class="block text-sm/6 font-semibold text-gray-900">Message</label>
+                        <div class="mt-2.5">
+                            <input type="text" name="last-name" id="last-name" placeholder="" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black h-[150px] sm:h-[250px]">
+                        </div>
+                    </div>
+    
+                    <button type="submit" class="bg-green-500/30 hover:bg-blue-50 text-black font-semibold py-2 px-4 rounded-md transition duration-300 cursor-pointer w-[150px]">
+                        Submit
+                    </button>
+    
+                </div>
+            </div>
+            <div class="col-span-1">
+                <img class="h-[550px] hidden sm:block" src="https://bootstrapmade.com/content/demo/Blogy/assets/img/cta/cta-1.webp" alt="">
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126117.90033045832!2d76.51847878745095!3d8.95515108872361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fdbb69f5a623%3A0xa28e3beb592ce94b!2sAshtamudi%20Lake!5e0!3m2!1sen!2sin!4v1745054151739!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    <footer class="px-10 sm:px-40 py-10 bg-[#0a0b0bb8] text-white grid sm:grid-cols-2 gap-3">
+        <img class="h-[200px]" src="{% static "images/jh.png" %}" alt="">
+        <div class="flex flex-col gap-2">
+            <div class="flex">
+                <div class=" px-3 py-1 border border-white/50 rounded-2xl">
+                    <a href="https://wa.me/9895612402" target="_blank" class="flex justify-center items-center gap-2">
+                        <i class="ri-whatsapp-line text-[30px]"></i>
+                        <p class="font-bold">WhatsApp</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" px-3 py-1 border border-white/50 rounded-2xl">
+                    <a href="https://wa.me/9895612402" target="_blank" class="flex justify-center items-center gap-2">
+                        <i class="ri-phone-line text-[30px]"></i>
+                        <p class="font-bold">Phone</p>
+                    </a>
+                </div>
+            </div>
+            <div class="flex">
+                <div class=" px-3 py-1 border border-white/50 rounded-2xl">
+                    <div class="flex justify-center items-center gap-2">
+                        <i class="ri-mail-send-line text-[30px]"></i>
+                        <p class="font-bold">jcholidayskollam@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="{% static "js/main.js" %}"></script>
+
+
+
+
+    
+</body>
+</html>

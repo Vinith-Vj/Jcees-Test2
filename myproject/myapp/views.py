@@ -50,3 +50,6 @@ def package(request, slug):
         # 'exclusion': exclusion,
         # 'good_to_know': good_to_know
     })
+
+def property(request):
+    return render(request, 'property.html')
