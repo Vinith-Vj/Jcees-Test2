@@ -1059,6 +1059,16 @@
       left: calc(1/2 * 100%);
     }
   }
+  .sm\:col-span-1 {
+    @media (width >= 40rem) {
+      grid-column: span 1 / span 1;
+    }
+  }
+  .sm\:col-span-2 {
+    @media (width >= 40rem) {
+      grid-column: span 2 / span 2;
+    }
+  }
   .sm\:mx-20 {
     @media (width >= 40rem) {
       margin-inline: calc(var(--spacing) * 20);
