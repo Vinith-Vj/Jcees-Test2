@@ -151,3 +151,17 @@ class GoodToKnow(models.Model):
     def __str__(self):
         return self.good_to_know
     
+
+class Contacts(models.Model):
+    first_name = models.CharField(max_length=100, default=1)
+    last_name = models.CharField(max_length=100, default=1)
+    email = models.EmailField()
+    check_in = models.DateField()
+    check_out = models.DateField()
+    guests = models.IntegerField()
+    phone = models.CharField(max_length=20)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.email}"

@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Boat,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow
+from django.core.mail import send_mail
+from .forms import ContactForm
+from django.conf import settings
 
 def index(request):
     boats= Boat.objects.all()
@@ -53,3 +56,35 @@ def package(request, slug):
 
 def property(request):
     return render(request, 'property.html')
+
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save()  # Save to DB
+
+            # Optional: Send email to yourself
+            subject = f"New Contact Form Submission from {contact.first_name} {contact.last_name}"
+            message = f"""
+            Name: {contact.first_name} {contact.last_name}
+            Email: {contact.email}
+            Phone: {contact.phone}
+            Check-in: {contact.check_in}
+            Check-out: {contact.check_out}
+            Guests: {contact.guests}
+            Message: {contact.message}
+            """
+            send_mail(
+                subject, 
+                message, 
+                settings.EMAIL_HOST_USER,
+                [settings.EMAIL_HOST_USER],
+                fail_silently=False,
+            )
+
+            return render(request, 'contact_success.html')  # Show success page
+    else:
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})

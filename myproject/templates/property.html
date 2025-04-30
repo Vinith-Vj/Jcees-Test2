@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -21,7 +23,7 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <div class="fixed top-0 z-50">
+    <div class="absolute top-0 z-50">
         <div class="flex flex-col">
                 <div class="h-[100px] bg-white w-screen px-5 sm:px-20 flex justify-between items-center text-[12px] font-bold text-black/70">
                     <div class="hidden md:flex gap-5">
@@ -98,7 +100,7 @@
 
             <div class="flex flex-col justify-center sm:col-span-2">
                 
-                <h2 class="text-4xl font-bold head mb-5 ">Heritage Haven</h2>
+                <h2 class="text-4xl font-bold head mb-5">Heritage Haven</h2>
                 <p class="">Our newly renovated and generously sized home accommodates up to 6 guests and includes:</p>
                 <ul class="list-disc list-inside space-y-2 text-black/60 p-5 con">
                     <li>3 comfortable air-conditioned bedrooms</li>
@@ -110,7 +112,7 @@
 
                 <p class="text-black/60">"Step outside and enjoy the serene front and backyard, both fully enclosed for your security, with convenient parking space for up to two vehicles. Whether you're looking for a quiet getaway or a comfortable extended stay in this charming coastal town, Mavil Lodge provides the perfect setting for relaxation and peace."</p>
 
-                <p class="mt-5 font-bold">We eagerly await the opportunity to welcome you!</p>
+                <p class="mt-5 font-bold tangerine text-4xl text-black/60">"We eagerly await the opportunity to welcome you!"</p>
             </div>
         </div>
     </div>
@@ -403,9 +405,18 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126117.90033045832!2d76.51847878745095!3d8.95515108872361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fdbb69f5a623%3A0xa28e3beb592ce94b!2sAshtamudi%20Lake!5e0!3m2!1sen!2sin!4v1745054151739!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 
-    <footer class="px-10 sm:px-40 py-10 bg-[#0a0b0bb8] text-white grid sm:grid-cols-2 gap-3">
-        <img class="h-[200px]" src="{% static "images/jh.png" %}" alt="">
-        <div class="flex flex-col gap-2">
+    <footer class="px-10 sm:px-40 py-10 bg-[#e9e2d2] montserrat">
+        <div class="flex justify-center items-center">
+            <img class="h-[200px]" src="{% static "images/jh.png" %}" alt="">
+        </div>
+
+        <div class="flex justify-center my-5">   
+            <div class="flex gap-3 text-black/70">
+                <a href="/">HOME</a>
+            </div>
+        </div>
+
+        {% comment %} <div class="flex flex-col gap-2">
             <div class="flex">
                 <div class=" px-3 py-1 border border-white/50 rounded-2xl">
                     <a href="https://wa.me/9895612402" target="_blank" class="flex justify-center items-center gap-2">
@@ -430,7 +441,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
     </footer>
 
 
