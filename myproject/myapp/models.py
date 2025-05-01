@@ -156,9 +156,12 @@ class Contacts(models.Model):
     first_name = models.CharField(max_length=100, default=1)
     last_name = models.CharField(max_length=100, default=1)
     email = models.EmailField()
-    check_in = models.DateField()
-    check_out = models.DateField()
-    guests = models.IntegerField()
+    PACKAGE_CHOICES = [
+        ('boat', 'Boating Package'),
+        ('Home stay', 'Home Stays'),
+    ]
+
+    package_type = models.CharField(max_length=20, choices=PACKAGE_CHOICES, default='boat')
     phone = models.CharField(max_length=20)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

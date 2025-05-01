@@ -37,19 +37,12 @@
                 <div class="grid sm:grid-cols-2 gap-5">
                     <div class="flex gap-5">
                         <div class="w-full">
-                            <label class="block text-sm font-semibold text-gray-900">Check In</label>
-                            {{ form.check_in }}
-                        </div>
-                        <div class="w-full">
-                            <label class="block text-sm font-semibold text-gray-900">Check Out</label>
-                            {{ form.check_out }}
+                            <label for="{{ form.package_type.id_for_label }}" class="block text-sm font-semibold text-gray-900">Select a Topic</label>
+                            {{ form.package_type }}
                         </div>
                     </div>
                     <div class="flex gap-5">
-                        <div class="w-full">
-                            <label class="block text-sm font-semibold text-gray-900">Number of Guests</label>
-                            {{ form.guests }}
-                        </div>
+                        
                         <div class="w-full">
                             <label class="block text-sm font-semibold text-gray-900">Phone</label>
                             {{ form.phone }}

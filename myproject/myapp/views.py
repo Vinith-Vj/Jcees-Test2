@@ -70,9 +70,7 @@ def contact_view(request):
             Name: {contact.first_name} {contact.last_name}
             Email: {contact.email}
             Phone: {contact.phone}
-            Check-in: {contact.check_in}
-            Check-out: {contact.check_out}
-            Guests: {contact.guests}
+            Selected Topic: {contact.package_type}
             Message: {contact.message}
             """
             send_mail(
