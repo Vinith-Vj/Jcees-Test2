@@ -302,6 +302,9 @@
   .my-5 {
     margin-block: calc(var(--spacing) * 5);
   }
+  .my-6 {
+    margin-block: calc(var(--spacing) * 6);
+  }
   .my-10 {
     margin-block: calc(var(--spacing) * 10);
   }
@@ -479,6 +482,9 @@
   }
   .w-\[300px\] {
     width: 300px;
+  }
+  .w-\[400px\] {
+    width: 400px;
   }
   .w-full {
     width: 100%;
@@ -1244,6 +1250,11 @@
   .sm\:grid {
     @media (width >= 40rem) {
       display: grid;
+    }
+  }
+  .sm\:hidden {
+    @media (width >= 40rem) {
+      display: none;
     }
   }
   .sm\:h-\[230px\] {
