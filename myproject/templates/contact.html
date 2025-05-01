@@ -11,59 +11,61 @@
     <link rel="stylesheet" href="{% static "css/main.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <form method="post" class="grid sm:grid-cols-3 gap-5">
-        {% csrf_token %}
-        <div class="col-span-2">
-            <div class="flex flex-col gap-5">
-    
-                <div class="grid sm:grid-cols-2 gap-5">
-                    <div class="flex flex-col sm:flex-row gap-5">
-                        <div class="w-full">
-                            <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-semibold text-gray-900">First name</label>
-                            {{ form.first_name }}
+<body class="">
+    <div class="mx-5 sm:mx-20 my-10">
+        <form method="post" class="grid sm:grid-cols-3 gap-5">
+            {% csrf_token %}
+            <div class="col-span-2">
+                <div class="flex flex-col gap-5">
+        
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div class="flex flex-col sm:flex-row gap-5">
+                            <div class="w-full">
+                                <label for="{{ form.first_name.id_for_label }}" class="block text-sm font-semibold text-gray-900">First name</label>
+                                {{ form.first_name }}
+                            </div>
+                            <div class="w-full">
+                                <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-semibold text-gray-900">Last name</label>
+                                {{ form.last_name }}
+                            </div>
                         </div>
                         <div class="w-full">
-                            <label for="{{ form.last_name.id_for_label }}" class="block text-sm font-semibold text-gray-900">Last name</label>
-                            {{ form.last_name }}
+                            <label for="{{ form.email.id_for_label }}" class="block text-sm font-semibold text-gray-900">Email</label>
+                            {{ form.email }}
                         </div>
                     </div>
+        
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div class="flex gap-5">
+                            <div class="w-full">
+                                <label for="{{ form.package_type.id_for_label }}" class="block text-sm font-semibold text-gray-900">Select a Topic</label>
+                                {{ form.package_type }}
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            
+                            <div class="w-full">
+                                <label class="block text-sm font-semibold text-gray-900">Phone</label>
+                                {{ form.phone }}
+                            </div>
+                        </div>
+                    </div>
+        
                     <div class="w-full">
-                        <label for="{{ form.email.id_for_label }}" class="block text-sm font-semibold text-gray-900">Email</label>
-                        {{ form.email }}
+                        <label for="{{ form.message.id_for_label }}" class="block text-sm font-semibold text-gray-900">Message</label>
+                        {{ form.message }}
                     </div>
+        
+                    <button type="submit" class="bg-green-500/30 hover:bg-blue-50 text-black font-semibold py-2 px-4 rounded-md w-[150px]">
+                        Submit
+                    </button>
                 </div>
-    
-                <div class="grid sm:grid-cols-2 gap-5">
-                    <div class="flex gap-5">
-                        <div class="w-full">
-                            <label for="{{ form.package_type.id_for_label }}" class="block text-sm font-semibold text-gray-900">Select a Topic</label>
-                            {{ form.package_type }}
-                        </div>
-                    </div>
-                    <div class="flex gap-5">
-                        
-                        <div class="w-full">
-                            <label class="block text-sm font-semibold text-gray-900">Phone</label>
-                            {{ form.phone }}
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="w-full">
-                    <label for="{{ form.message.id_for_label }}" class="block text-sm font-semibold text-gray-900">Message</label>
-                    {{ form.message }}
-                </div>
-    
-                <button type="submit" class="bg-green-500/30 hover:bg-blue-50 text-black font-semibold py-2 px-4 rounded-md w-[150px]">
-                    Submit
-                </button>
             </div>
-        </div>
-        <div class="col-span-1">
-            <img class="h-[550px] hidden sm:block" src="https://bootstrapmade.com/content/demo/Blogy/assets/img/cta/cta-1.webp" alt="">
-        </div>
-    </form>
+            <div class="col-span-1">
+                <img class="h-[550px] hidden sm:block" src="https://bootstrapmade.com/content/demo/Blogy/assets/img/cta/cta-1.webp" alt="">
+            </div>
+        </form>
+    </div>
     
 </body>
 </html>
