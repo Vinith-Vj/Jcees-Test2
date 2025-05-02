@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import Boat,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow
+from .models import Boat,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow, Property
 from django.core.mail import send_mail
 from .forms import ContactForm
 from django.conf import settings
 
 def index(request):
     boats= Boat.objects.all()
+    property = Property.objects.all()
     return render(request, 'index.html', {
         'boats': boats,
+        'property': property,
     })
 
 def boat(request, slug):
@@ -86,3 +88,7 @@ def contact_view(request):
         form = ContactForm()
     
     return render(request, 'contact.html', {'form': form})
+
+def property(request, slug):
+    property = Property.objects.get(slug=slug)
+    return render(request, 'property.html', {'property': property})

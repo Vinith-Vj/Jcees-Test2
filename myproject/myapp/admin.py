@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Boat ,AboutDistrictAndService ,TourPackagesSection,BoatFAQ ,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow, PackageImage, Contacts
+from .models import Boat ,AboutDistrictAndService ,TourPackagesSection,BoatFAQ ,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow, PackageImage, Contacts, Property
 
 # Register your models here.
 
@@ -85,3 +85,4 @@ admin.site.register(BoatingPackage, AttractionAdmin)
 
 
 admin.site.register(Contacts)
+admin.site.register(Property)

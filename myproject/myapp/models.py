@@ -168,3 +168,13 @@ class Contacts(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.email}"
+    
+
+class Property(models.Model):
+    slug = models.SlugField(unique=True)
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='property/')
+    short_desc = models.TextField(max_length=1255)
+
+    def __str__(self):
+        return self.name

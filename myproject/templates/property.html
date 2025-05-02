@@ -62,10 +62,6 @@
         </div>
     </div>
 
-
-
-    {% comment %} <img src="{% static "images/img-15.jpeg" %}" class="h-screen w-screen" alt=""> {% endcomment %}
-
     <div class="relative">
         <!-- Background Image -->
         <img src="{% static "images/img-15.jpeg" %}" alt="Background" class="w-full h-[75vh] object-cover">
@@ -78,9 +74,9 @@
       
       <!-- Text Content -->
       <div class="bg-[#48694a] text-white text-center p-8">
-        <h1 class="text-3xl font-bold mb-4">Welcome to JC'S DALE POOL VILLA</h1>
+        <h1 class="text-3xl font-bold mb-4">Welcome to {{ property.name }}</h1>
         <p class="max-w-2xl mx-auto">
-            "Nestled in the heart of Tangasseri, our centuries-old ancestral home is surrounded by lush coconut palms and the shimmering turquoise waters of the Arabian Sea. This charming coastal town, affectionately known as Tangy, sits at the southern tip of Kollam (Quilon) in Kerala, South India. Tangasseri (or Thangassery) offers a unique glimpse into Kerala’s rich heritage—God’s Own Country—where winding streets, fresh seafood, and warm-hearted locals create an unforgettable experience. Just a short walk from Tangasseri’s historic churches and its iconic lighthouse, JC Dale Pool Villa provides the perfect getaway for both short and long stays. Come and experience the essence of The Good Life at Tangy with us!"
+            {{ property.short_desc }}
         </p>
     </div>
 
