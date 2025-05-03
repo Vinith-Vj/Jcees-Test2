@@ -405,12 +405,6 @@
   .h-\[100px\] {
     height: 100px;
   }
-  .h-\[100vh\] {
-    height: 100vh;
-  }
-  .h-\[110vh\] {
-    height: 110vh;
-  }
   .h-\[130px\] {
     height: 130px;
   }
@@ -738,12 +732,6 @@
     --tw-gradient-position: to bottom in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
   }
-  .bg-\[url\(\/static\/images\/bg-img-1\.jpeg\)\] {
-    background-image: url(/static/images/bg-img-1.jpeg);
-  }
-  .bg-\[url\(\/static\/images\/img-19\.jpg\)\] {
-    background-image: url(/static/images/img-19.jpg);
-  }
   .bg-\[url\(\/static\/images\/img-22\.jpg\)\] {
     background-image: url(/static/images/img-22.jpg);
   }
@@ -993,9 +981,6 @@
   .opacity-50 {
     opacity: 50%;
   }
-  .opacity-70 {
-    opacity: 70%;
-  }
   .opacity-100 {
     opacity: 100%;
   }
@@ -1044,10 +1029,6 @@
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
-  }
-  .duration-500 {
-    --tw-duration: 500ms;
-    transition-duration: 500ms;
   }
   .ease-in {
     --tw-ease: var(--ease-in);

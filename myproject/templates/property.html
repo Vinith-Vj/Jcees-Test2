@@ -88,27 +88,32 @@
             <div class="sm:col-span-1">
                 {% comment %} <img src="{% static "images/img-16.jpeg" %}" class="rounded-2xl h-[550px] w-full bg-cover object-cover" alt=""> {% endcomment %}
 
-                <video autoplay muted loop class="rounded-2xl h-[550px] w-full bg-cover object-cover">
-                    <source src="{% static "images/bg-vid-2.MOV" %}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                {% for p in property.detail.all %}
+                    <video autoplay muted loop class="rounded-2xl h-[550px] w-full bg-cover object-cover">
+                        <source src="{{ p.video.url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endfor %}
             </div>
 
             <div class="flex flex-col justify-center sm:col-span-2">
+                {% for p in property.detail.all %}
                 
-                <h2 class="text-4xl font-bold head mb-5">Heritage Haven</h2>
-                <p class="">Our newly renovated and generously sized home accommodates up to 6 guests and includes:</p>
-                <ul class="list-disc list-inside space-y-2 text-black/60 p-5 con">
-                    <li>3 comfortable air-conditioned bedrooms</li>
-                    <li>3 modern bathrooms</li>
-                    <li>A fully equipped main kitchen</li>
-                    <li>A spacious living and dining area perfect for relaxing and entertaining</li>
-                    <li>Laundry facilities including a washing machine for a hassle-free stay</li>
-                </ul>
+                    <h2 class="text-4xl font-bold head mb-5">{{ p.heading }}</h2>
+                    <p class="">{{ p.bullet_point_heading }}:</p>
+                    <ul class="list-disc list-inside space-y-2 text-black/60 p-5 con">
+                        {% for p in property.detail_bullets.all %}
+                            <li>{{ p.bullet_points }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
 
-                <p class="text-black/60">"Step outside and enjoy the serene front and backyard, both fully enclosed for your security, with convenient parking space for up to two vehicles. Whether you're looking for a quiet getaway or a comfortable extended stay in this charming coastal town, Mavil Lodge provides the perfect setting for relaxation and peace."</p>
 
-                <p class="mt-5 font-bold tangerine text-4xl text-black/60">"We eagerly await the opportunity to welcome you!"</p>
+                {% for p in property.detail_remaining.all %}
+                    <p class="text-black/60">"{{ p.short_desc }}"</p>
+
+                    <p class="mt-5 font-bold tangerine text-4xl text-black/60">"{{ p.welcome }}"</p>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -123,17 +128,18 @@
                 <swiper-container class="mySwiper"
                 autoplay-delay="2500" autoplay-disable-on-interaction="false">
 
-                    <swiper-slide><img src="{% static 'images/img-17.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-18.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-19.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-20.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
-                    <swiper-slide><img src="{% static 'images/img-21.jpg' %}" alt="Image" class="rounded-2xl"></swiper-slide>
+                    {% for p in property.gallery.all %}
+                        <swiper-slide><img src="{{ p.image.url }}" alt="Image" class="rounded-2xl"></swiper-slide>
+                    {% endfor %}
+
                 </swiper-container>
             </div>
             
             <div class="flex flex-col gap-5">
-                <img src="{% static 'images/img-22.jpg' %}" alt="Image" class="rounded-2xl">
-                <img src="{% static 'images/img-18.jpg' %}" alt="Image" class="rounded-2xl">
+                {% if property.gallery.all|length > 0 %}
+                    <img src="{{ property.gallery.all.0.image.url }}" alt="Image" class="rounded-2xl">
+                    <img src="{{ property.gallery.all.1.image.url }}" alt="Image" class="rounded-2xl">
+                {% endif %}
             </div>
         </div>
 
@@ -143,18 +149,11 @@
 
             <swiper-container class="mySwiper h-full mb-10" pagination="true" effect="cube" grab-cursor="true" cube-effect-shadow="true"
         cube-effect-slide-shadows="true" cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
-            <swiper-slide>
-            <img src="{% static 'images/img-22.jpg' %}" />
-            </swiper-slide>
-            <swiper-slide>
-            <img src="{% static 'images/img-18.jpg' %}" />
-            </swiper-slide>
-            <swiper-slide>
-            <img src="{% static 'images/img-17.jpg' %}" />
-            </swiper-slide>
-            <swiper-slide>
-            <img src="{% static 'images/img-18.jpg' %}" />
-            </swiper-slide>
+
+            {% for p in property.gallery.all %}
+                <swiper-slide><img src="{{ p.image.url }}" alt="Image" class="rounded-2xl"></swiper-slide>
+            {% endfor %}
+            
         </swiper-container>
         </div>
 
@@ -168,18 +167,13 @@
             <p class="text-[25px] sm:text-[40px] heading">Exceptional Amenities for an Unforgettable Stay</p>
 
             <div class="grid sm:grid-cols-4 mt-10 gap-5">
-                <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
-                    <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="{% static "images/img-21.jpg" %}" alt="">
-                    <p class="text-[23px] sm:text-[26px] roboto">Pool</p>
-                </div>
-                <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
-                    <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
-                    <p class="text-[23px] sm:text-[26px] roboto">In-House Gym</p>
-                </div>
-                <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
-                    <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="{% static "images/img-22.jpg" %}" alt="">
-                    <p class="text-[23px] sm:text-[26px] roboto">Fine Dining</p>
-                </div>
+                {% for p in property.amenity.all %}
+                    <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
+                        <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="{{ p.amentity_image.url }}" alt="">
+                        <p class="text-[23px] sm:text-[26px] roboto">{{ p.amentity }}</p>
+                    </div>
+                {% endfor %}
+                
                 <div class="flex flex-col justify-end gap-5 h-full w-full sm:pr-3">
                     <p class="roboto text-black/50">Enjoy premium comforts and top-notch facilities designed for a perfect stay.</p>
                     
@@ -190,43 +184,48 @@
 
 
 
-    <div class="mx-5 sm:mx-20 my-20 bg-[url(/static/images/img-19.jpg)] bg-fixed h-[450px] bg-cover bg-center rounded-2xl text-white p-5 flex justify-center items-center">
-        <div class="grid sm:grid-cols-2 gap-5 sm:gap-0">
-            <div class="flex flex-col">
-                <h4 class="text-[35px] sm:text-[40px] heading">Start Your Luxurious Experience Today</h4>
-            </div>
-            <div class="flex flex-col justify-end">
-                <div class="flex gap-5">
-                    <i class="ri-facebook-circle-fill text-[25px]"></i>
-                    <i class="ri-instagram-line text-[25px]"></i>
-                    {% comment %} <i class="ri-youtube-line text-[25px]"></i> {% endcomment %}
-                    <a href="https://wa.me/9895612402" target="_blank" class="flex gap-2 items-center"><i class="ri-whatsapp-line text-[25px]"></i></a>
+    {% for p in property.luxury.all %}
+        <div class="mx-5 sm:mx-20 my-20 bg-fixed h-[450px] bg-cover bg-center rounded-2xl text-white p-5 flex justify-center items-center" style="background-image: url('{{ p.background_image.url }}');">
+            <div class="grid sm:grid-cols-2 gap-5 sm:gap-0">
+                <div class="flex flex-col">
+                    <h4 class="text-[35px] sm:text-[40px] heading">Start Your Luxurious Experience Today</h4>
                 </div>
-                <p>At JC Dale Pool, we blend comfort, elegance, and nature to give you a stay like no other. Our handcrafted wooden interiors, tranquil surroundings, and warm hospitality ensure every guest enjoys a peaceful and memorable escape. Whether you're here to relax or explore, luxury begins the moment you arrive.</p>
+                <div class="flex flex-col justify-end">
+                    <div class="flex gap-5">
+                        <i class="ri-facebook-circle-fill text-[25px]"></i>
+                        <i class="ri-instagram-line text-[25px]"></i>
+                        {% comment %} <i class="ri-youtube-line text-[25px]"></i> {% endcomment %}
+                        <a href="https://wa.me/9895612402" target="_blank" class="flex gap-2 items-center"><i class="ri-whatsapp-line text-[25px]"></i></a>
+                    </div>
+                    <p>{{ p.short_desc }}</p>
+                </div>
             </div>
         </div>
-    </div>
+    {% endfor %}
 
 
     <div class="bg-[#eee4e3] py-10 sm:py-30">
         <div class="relative mx-5 sm:mx-20">
             <div class="flex flex-col gap-96 sm:gap-40">
-                <div class="flex justify-between">
-                    <img class="sm:h-[270px] sm:w-[270px] h-[100px] w-[150px] rounded-2xl object-cover" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="">
+                {% if property.dining.all|length > 0 %}
+                    <div class="flex justify-between">
+                        <img class="sm:h-[270px] sm:w-[270px] h-[100px] w-[150px] rounded-2xl object-cover" src="{{ property.dining.all.0.image.url }}" alt="">
 
-                    <img class="h-[130px] w-[190px] sm:h-[230px] sm:w-[370px] rounded-2xl object-cover" src="https://images.pexels.com/photos/5774001/pexels-photo-5774001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
-                </div>
+                        <img class="h-[130px] w-[190px] sm:h-[230px] sm:w-[370px] rounded-2xl object-cover" src="{{ property.dining.all.1.image.url }}" alt="">
+                    </div>
 
-                <div class="flex justify-between">
-                    <img class="h-[130px] w-[190px] sm:h-[230px] sm:w-[370px] rounded-2xl object-cover" src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                    <div class="flex justify-between">
+                        <img class="h-[130px] w-[190px] sm:h-[230px] sm:w-[370px] rounded-2xl object-cover" src="{{ property.dining.all.2.image.url }}" alt="">
+    
+                        <img class="sm:h-[270px] sm:w-[270px] h-[100px] w-[150px] rounded-2xl object-cover" src="{{ property.dining.all.3.image.url }}" alt="">
+                    </div>
+                {% endif %}
 
-                    <img class="sm:h-[270px] sm:w-[270px] h-[100px] w-[150px] rounded-2xl object-cover" src="https://images.pexels.com/photos/7783364/pexels-photo-7783364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
-                </div>
 
                 <div class="absolute flex flex-col h-full justify-center items-center sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2 text-center">
                     <div class="flex flex-col gap-3 sm:gap-10">
                         <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Dining</h1>
-                        <p class="text-[25px] sm:text-[60px] heading">A Culinary Journey ofElegance & Flavor</p>
+                        <p class="text-[25px] sm:text-[60px] heading">A Culinary Journey of Elegance & Flavor</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac ligula vel justo suscipit eleifend. </p>
                         <div class="flex justify-center items-center">
                             <div class=" mt-10 roboto px-5 py-2 bg-green-500/30 font-medium text-black/80 rounded-full text-center hover:bg-blue-50 hover:text-black duration-300 animate-bounce">
@@ -242,38 +241,39 @@
     
 
     <div class="mx-5 sm:mx-20 my-20">
-        <div class="grid sm:grid-cols-2 gap-5">
+        <div class="sm:grid sm:grid-cols-2 gap-5">
             <div class="flex flex-col justify-between">
                 <div class="flex flex-col">
                     <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Guest Testimonials</h1>
                     <p class="text-[25px] mb-3 sm:mb-0 sm:text-[40px] heading">Our Guests Love Their Stay—See Why!</p>
                 </div>
-                <p class="text-black/50 mb-3 sm:mb-0">At JC Dale Pool, we take pride in creating unforgettable stays for our guests. Whether visiting for relaxation or adventure, guests consistently praise the warm hospitality, attention to detail, and peaceful atmosphere of our homestay. From personalized service to spotless accommodations, every aspect of their experience is designed with comfort in mind. Our well-maintained pool, scenic surroundings, and thoughtful amenities provide the perfect balance of luxury and homeliness. The glowing testimonials we receive reflect our commitment to making each guest feel valued, relaxed, and eager to return.</p>
-                <div class=" w-full overflow-hidden">
-                    <div id="testimonialContainer" class="flex transition-transform duration-500 ease-in-out">
-                        <!-- Testimonial 1 -->
-                        <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
-                            <p class="text-lg italic">"Amazing experience! Loved every moment!"</p>
-                            <h3 class="mt-2 font-bold">- John Doe</h3>
-                        </div>
-                        <!-- Testimonial 2 -->
-                        <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
-                            <p class="text-lg italic">"Great service and wonderful ambiance!"</p>
-                            <h3 class="mt-2 font-bold">- Jane Smith</h3>
-                        </div>
-                        <!-- Testimonial 3 -->
-                        <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
-                            <p class="text-lg italic">"I will definitely come back again!"</p>
-                            <h3 class="mt-2 font-bold">- Alex Johnson</h3>
-                        </div>
-                    </div>
+
+                {% for p in property.testimonial_section.all %}
+                    <p class="text-black/50 mb-3 sm:mb-0">{{ p.desc }}</p>
+                {% endfor %}
+                <div class=" w-full overflow-hidden mb-5">
+                    <swiper-container class="mySwiper"
+                    autoplay-delay="2500" autoplay-disable-on-interaction="false">
+                        
+                    {% for p in property.testimonial.all %}
+                        <swiper-slide>
+                            <div class="min-w-full p-2 sm:p-6 text-center bg-gray-100 rounded-lg">
+                                <p class="text-lg italic">"{{ p.guest_words }}"</p>
+                                <h3 class="mt-2 font-bold">- {{ p.guest_name }}</h3>
+                            </div>
+                        </swiper-slide>
+                    {% endfor %}
+
+                    </swiper-container>
+                    
                 </div>
             </div>
 
             <div>
                 {% comment %} <img class="h-[400px] sm:h-[600px] w-full rounded-2xl object-cover" src="https://images.pexels.com/photos/16866482/pexels-photo-16866482/free-photo-of-holidays-tropical-resort.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""> {% endcomment %}
-
-                <img class="h-[400px] sm:h-[600px] w-full rounded-2xl object-cover" src="{% static "images/img-23.jpg" %}" alt="">
+                {% for p in property.testimonial_section.all %}
+                    <img class="h-[400px] sm:h-[600px] w-full rounded-2xl object-cover" src="{{ p.image.url }}" alt="">
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -288,39 +288,52 @@
                     <h5 class="font-bold roboto font text-[20px]">Why Choose Kerala ?</h5>
                     <p class="text-white/80">Kerala, known as God’s Own Country, is a paradise of lush green landscapes, serene backwaters, pristine beaches, and rich cultural heritage. Whether you seek adventure in the Western Ghats, a relaxing houseboat cruise in Alleppey, or the vibrant festivals and delicious cuisine, Kerala offers a unique and unforgettable travel experience.</p>
                 </div>
-                <div class="flex flex-col gap-1">
-                    <h5 class="font-bold roboto font text-[20px]">Why Choose Tangasseri ?</h5>
-                    <p class="text-white/80">Tangasseri, a charming coastal town in Kerala, is a hidden gem rich in history, culture, and scenic beauty. Known for its iconic lighthouse, historic churches, and serene beaches, this quaint destination offers a perfect blend of heritage and tranquility. Whether you're exploring its colonial past or enjoying the fresh seafood and warm hospitality, Tangasseri promises a unique and memorable experience.</p>
-                </div>
+                {% for p in property.discover.all %}
+                    <div class="flex flex-col gap-1">
+                        <h5 class="font-bold roboto font text-[20px]">Why Choose {{ p.place_name }} ?</h5>
+                        <p class="text-white/80">{{ p.why_choose_place }}</p>
+                    </div>
+                {% endfor %}
             </div>
 
             <div class=" w-full overflow-hidden my-10">
-                <div id="keralaCarousal" class="flex transition-transform duration-500 ease-in-out">
-                    
-                    <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5">
-                        <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://content.r9cdn.net/rimg/dimg/a9/dd/d6b29241-city-44818-166a7453734.jpg?width=1200&height=630&xhint=1600&yhint=1049&crop=true" alt="">
-                        <div>
-                            <h5 class="font-bold roboto font text-[20px]">Munnar</h5>
-                            <p class="text-white/80">Munnar, a picturesque hill station in Kerala, is known for its lush tea plantations, misty mountains, and serene landscapes. Nestled in the Western Ghats, it offers breathtaking views, cascading waterfalls, and rich biodiversity. Visitors can explore Eravikulam National Park, trek to Anamudi Peak, or simply unwind amidst the cool, refreshing climate. Whether you're a nature lover or an adventure seeker, Munnar is a perfect retreat for a peaceful getaway</p>
-                        </div>
-                    </div>
-                    
-                    <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5 ">
-                        <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Alappuzha_Boat_Beauty_W.jpg" alt="">
-                        <div>
-                            <h5 class="font-bold roboto font text-[20px]">Alleppey (Alappuzha)</h5>
-                            <p class="text-white/80">Alleppey, also known as Alappuzha, is famous for its enchanting backwaters, houseboat cruises, and scenic beauty. Often called the "Venice of the East," this serene destination offers a unique experience of Kerala’s tranquil waterways lined with lush coconut palms and quaint villages. Visitors can enjoy a relaxing boat ride, witness the iconic Nehru Trophy Boat Race, and indulge in delicious Kerala seafood. Whether you're seeking peace or adventure, Alleppey is a must-visit destination.</p>
-                        </div>
-                    </div>
 
-                    <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5 ">
-                        <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://media1.thrillophilia.com/filestore/iyhdsi3ipex60his53wn4duhig2r_shutterstock_1688004694.jpg?w=400&dpr=2" alt="">
-                        <div>
-                            <h5 class="font-bold roboto font text-[20px]">Kochi (Cochin)</h5>
-                            <p class="text-white/80">Kochi, also known as Cochin, is a vibrant port city that blends history, culture, and modernity. Known as the Queen of the Arabian Sea, Kochi boasts colonial-era architecture, bustling markets, and stunning waterfront views. Visitors can explore the iconic Chinese fishing nets, Fort Kochi’s charming streets, the historic Mattancherry Palace, and the lively Jew Town. With its rich spice trade heritage and diverse culinary scene, Kochi offers an unforgettable experience for travelers.</p>
-                        </div>
-                    </div>
-                </div>
+                <swiper-container class="mySwiper"
+                    autoplay-delay="2500" autoplay-disable-on-interaction="false">
+
+                            <swiper-slide>
+                                <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5">
+                                    <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://content.r9cdn.net/rimg/dimg/a9/dd/d6b29241-city-44818-166a7453734.jpg?width=1200&height=630&xhint=1600&yhint=1049&crop=true" alt="">
+                                    <div>
+                                        <h5 class="font-bold roboto font text-[20px]">Munnar</h5>
+                                        <p class="text-white/80">Munnar, a picturesque hill station in Kerala, is known for its lush tea plantations, misty mountains, and serene landscapes. Nestled in the Western Ghats, it offers breathtaking views, cascading waterfalls, and rich biodiversity. Visitors can explore Eravikulam National Park, trek to Anamudi Peak, or simply unwind amidst the cool, refreshing climate. Whether you're a nature lover or an adventure seeker, Munnar is a perfect retreat for a peaceful getaway</p>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+
+                            <swiper-slide>
+                                <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5 ">
+                                    <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Alappuzha_Boat_Beauty_W.jpg" alt="">
+                                    <div>
+                                        <h5 class="font-bold roboto font text-[20px]">Alleppey (Alappuzha)</h5>
+                                        <p class="text-white/80">Alleppey, also known as Alappuzha, is famous for its enchanting backwaters, houseboat cruises, and scenic beauty. Often called the "Venice of the East," this serene destination offers a unique experience of Kerala’s tranquil waterways lined with lush coconut palms and quaint villages. Visitors can enjoy a relaxing boat ride, witness the iconic Nehru Trophy Boat Race, and indulge in delicious Kerala seafood. Whether you're seeking peace or adventure, Alleppey is a must-visit destination.</p>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+
+                            <swiper-slide>
+                                <div class="min-w-full flex flex-col sm:flex-row justify-center items-center gap-5 ">
+                                    <img class="h-[250px] w-full sm:w-[350px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none" src="https://media1.thrillophilia.com/filestore/iyhdsi3ipex60his53wn4duhig2r_shutterstock_1688004694.jpg?w=400&dpr=2" alt="">
+                                    <div>
+                                        <h5 class="font-bold roboto font text-[20px]">Kochi (Cochin)</h5>
+                                        <p class="text-white/80">Kochi, also known as Cochin, is a vibrant port city that blends history, culture, and modernity. Known as the Queen of the Arabian Sea, Kochi boasts colonial-era architecture, bustling markets, and stunning waterfront views. Visitors can explore the iconic Chinese fishing nets, Fort Kochi’s charming streets, the historic Mattancherry Palace, and the lively Jew Town. With its rich spice trade heritage and diverse culinary scene, Kochi offers an unforgettable experience for travelers.</p>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+
+                </swiper-container>
+
+                
             </div>
         </div>
     </div>

@@ -56,9 +56,6 @@ def package(request, slug):
         # 'good_to_know': good_to_know
     })
 
-def property(request):
-    return render(request, 'property.html')
-
 
 def contact_view(request):
     if request.method == 'POST':

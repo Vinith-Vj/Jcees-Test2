@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Boat ,AboutDistrictAndService ,TourPackagesSection,BoatFAQ ,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow, PackageImage, Contacts, Property
+from .models import Boat ,AboutDistrictAndService ,TourPackagesSection,BoatFAQ ,ItineraryItem, ItinerarySection, BoatingPackage, AttractionBulletPoint, MainAttraction, FoodStyle, FoodTimings, FoodBulletPoint, WhenDoesitRun, Duration, StartAndEndPoints, Inclusion, Exclusion, GoodToKnow, PackageImage, Contacts, Property, PropertyDetails, PropertyDetailsBulletPoints, PropertyRemaingDetails, ThumbnailImages, PropertyGallery, PropertyAmenities, StartYourLuxuriousSection, PropertyDiningSection, PropertyTestimonial, PropertyTestimonialSection, DiscoverSection
 
 # Register your models here.
 
@@ -85,4 +85,52 @@ admin.site.register(BoatingPackage, AttractionAdmin)
 
 
 admin.site.register(Contacts)
-admin.site.register(Property)
+
+class PropertyDetailsInline(admin.TabularInline):
+    model = PropertyDetails
+    extra = 1
+
+class ThumbnailImagesInline(admin.TabularInline):
+    model = ThumbnailImages
+    extra = 1
+
+class PropertyDetailsBulletPointsInline(admin.TabularInline):
+    model = PropertyDetailsBulletPoints
+    extra = 1
+
+class PropertyRemaingDetailsInline(admin.TabularInline):
+    model = PropertyRemaingDetails
+    extra = 1
+
+class PropertyGalleryInline(admin.TabularInline):
+    model = PropertyGallery
+    extra = 1
+
+class PropertyAmenitiesInline(admin.TabularInline):
+    model = PropertyAmenities
+    extra = 1
+
+class StartYourLuxuriousSectionInline(admin.TabularInline):
+    model = StartYourLuxuriousSection
+    extra = 1
+
+class PropertyDiningSectionInline(admin.TabularInline):
+    model = PropertyDiningSection
+    extra = 1
+
+class PropertyTestimonialSectionInline(admin.TabularInline):
+    model = PropertyTestimonialSection
+    extra = 1
+
+class PropertyTestimonialInline(admin.TabularInline):
+    model = PropertyTestimonial
+    extra = 1
+
+class DiscoverSectionInline(admin.TabularInline):
+    model = DiscoverSection
+    extra = 1
+
+class PropertyAdmin(admin.ModelAdmin):
+    inlines = [PropertyDetailsInline, ThumbnailImagesInline, PropertyDetailsBulletPointsInline, PropertyRemaingDetailsInline, PropertyGalleryInline, PropertyAmenitiesInline, StartYourLuxuriousSectionInline, PropertyDiningSectionInline, PropertyTestimonialSectionInline, PropertyTestimonialInline, DiscoverSectionInline]
+
+admin.site.register(Property, PropertyAdmin)

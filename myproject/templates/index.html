@@ -82,7 +82,7 @@
     <div class="mx-5 sm:mx-40 my-10 sm:my-20 con">
         <div class="grid sm:grid-cols-2 gap-10">
             <div class="">
-                <h4 class="">Welcom to</h4>
+                <h4 class="">Welcome to</h4>
                 <h5 class="text-4xl font-bold plex text-[#2eb872] mb-5">JC'S Holidays</h5>
         
                 <p class="text-black/60">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, perspiciatis. Excepturi aspernatur nostrum libero ipsam amet dolores. Autem omnis natus in explicabo eaque sequi, facilis praesentium. Quibusdam doloremque dignissimos asperiores minima qui doloribus. Reprehenderit eligendi blanditiis, soluta tempore, inventore quo laborum eius eaque necessitatibus corrupti est ipsum beatae placeat sit maiores facilis explicabo tempora esse pariatur ab voluptatibus quos. Placeat veritatis expedita, adipisci, atque optio aperiam accusantium amet non corporis quam esse minima ab eum ex et dolorum aut sapiente at blanditiis beatae? Saepe deserunt cum neque dicta aut, perferendis impedit quibusdam molestiae distinctio soluta facere maiores assumenda laborum vel!</p>
@@ -341,17 +341,22 @@
             
                 <a href="{% url 'property' slug=p.slug %}" class="group relative block mb-5">
                     <div class="relative h-[350px] sm:h-[450px]">
-                    <img
-                        src="{% static "images/img-8.jpeg" %}"
-                        alt=""
-                        class="absolute inset-0 h-full w-full object-cover opacity-100 transition duration-300 group-hover:opacity-0"
-                    />
-                
-                    <img
-                        src="{% static "images/img-6.jpeg" %}"
-                        alt=""
-                        class="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-300 group-hover:opacity-100"
-                    />
+
+                    {% if p.thumbnail.all|length > 0 %}
+                        <img
+                            src="{{ p.thumbnail.all.0.image.url }}"
+                            alt=""
+                            class="absolute inset-0 h-full w-full object-cover opacity-100 transition duration-300 group-hover:opacity-0"
+                        />
+                    {% endif %}
+            
+                    {% if p.thumbnail.all|length > 1 %}
+                        <img
+                            src="{{ p.thumbnail.all.1.image.url }}"
+                            alt=""
+                            class="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-300 group-hover:opacity-100"
+                        />
+                    {% endif %}
                     </div>
                 
                     <div class="absolute inset-0 flex flex-col items-start justify-end p-6">

@@ -178,3 +178,58 @@ class Property(models.Model):
 
     def __str__(self):
         return self.name
+
+class ThumbnailImages(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='thumbnail')
+    image = models.ImageField(upload_to='property/')
+    
+class PropertyDetails(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='detail')
+    video = models.FileField(upload_to='Property/')
+    heading = models.CharField(max_length=250)
+    bullet_point_heading = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.heading
+    
+class PropertyDetailsBulletPoints(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='detail_bullets')
+    bullet_points = models.CharField(max_length=1000)
+
+class PropertyRemaingDetails(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='detail_remaining')
+    short_desc = models.TextField()
+    welcome = models.CharField(max_length=1000)
+
+class PropertyGallery(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='gallery')
+    image = models.ImageField(upload_to='property/') 
+
+class PropertyAmenities(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='amenity')
+    amentity = models.CharField(max_length=350)
+    amentity_image = models.ImageField(upload_to='property/') 
+
+class StartYourLuxuriousSection(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='luxury')
+    background_image = models.ImageField(upload_to='property/') 
+    short_desc = models.TextField()
+    
+class PropertyDiningSection(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='dining')
+    image = models.ImageField(upload_to='property/') 
+
+class PropertyTestimonialSection(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='testimonial_section')
+    desc = models.TextField()
+    image = models.ImageField(upload_to='property/') 
+
+class PropertyTestimonial(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='testimonial')
+    guest_name = models.CharField(max_length=350)
+    guest_words = models.TextField()
+
+class DiscoverSection(models.Model):
+    section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='discover')
+    place_name = models.CharField(max_length=300)
+    why_choose_place = models.TextField()
