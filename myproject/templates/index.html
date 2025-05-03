@@ -329,7 +329,9 @@
                     </div>
                 
                     <div class="absolute inset-0 flex flex-col items-start justify-end p-6">
-                    <h3 class="text-xl font-medium text-white">Thangassery,Kollam</h3>
+                    <h3 class="text-xl font-medium text-white">{{ p.name }},{% for b in p.discover.all %}
+                            {{ b.place_name }}
+                        {% endfor %}</h3>
                 
                     <p class="mt-1.5 text-xs text-pretty text-white">
                         {{ p.short_desc|slice:":100" }}...
