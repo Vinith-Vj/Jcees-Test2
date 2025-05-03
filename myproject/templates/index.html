@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,8 @@
                     <div class="h-[100px] bg-white w-screen px-5 sm:px-20 flex justify-between items-center text-[12px] font-bold text-black/70">
                         <div class="hidden md:flex gap-5">
                             <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">HOME</a>
-                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">ABOUT US</a>
+                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="#boating">BOATING</a>
+                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="#home">HOME STAY</a>
                             <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="contact/">CONTACT US</a>
                         </div>
                         <img class="h-[100px]" src="{% static "images/jh.png" %}" alt="">
@@ -41,8 +42,8 @@
                         </div>
                         <div class="flex flex-col gap-5 py-5">
                             <a class="hover:text-white transition duration-300" href="">HOME</a>
-                            <a class="hover:text-white transition duration-300" href="#about">ABOUT US</a>
-                            <a class="hover:text-white transition duration-300" href="#services">SERVICES</a>
+                            <a class="hover:text-white transition duration-300" href="#boating">BOATING</a>
+                            <a class="hover:text-white transition duration-300" href="#home">HOME STAY</a>
                             <a class="hover:text-white transition duration-300" href="contact/">CONTACT US</a>
                         </div>
                     </div>
@@ -134,7 +135,7 @@
             </div>
         </div>
         
-        <div class="grid sm:grid-cols-3 gap-10 my-10">
+        <div class="grid sm:grid-cols-3 gap-10 my-10" id="boating">
             
             <div class="flex gap-5 justify-center items-center">
                 <div class="">
@@ -270,7 +271,7 @@
     </div>
 
 
-    <div class="mx-5 sm:mx-40 my-10 sm:my-20 con">
+    <div class="mx-5 sm:mx-40 my-10 sm:my-20 con" id="home">
         <div class="">
             <h4 class="">JC'S Holidays</h4>
             <h5 class="text-4xl font-bold plex text-[#2eb872] mb-5">Home Stays</h5>
