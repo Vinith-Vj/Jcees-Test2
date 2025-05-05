@@ -153,8 +153,8 @@ class GoodToKnow(models.Model):
     
 
 class Contacts(models.Model):
-    first_name = models.CharField(max_length=100, default=1)
-    last_name = models.CharField(max_length=100, default=1)
+    first_name = models.CharField(max_length=100, default='Bruno')
+    last_name = models.CharField(max_length=100, default='Mars')
     email = models.EmailField()
     PACKAGE_CHOICES = [
         ('boat', 'Boating Package'),

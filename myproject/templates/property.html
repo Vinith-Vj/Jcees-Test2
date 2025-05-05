@@ -129,7 +129,7 @@
                 autoplay-delay="2500" autoplay-disable-on-interaction="false">
 
                     {% for p in property.gallery.all %}
-                        <swiper-slide><img src="{{ p.image.url }}" alt="Image" class="rounded-2xl"></swiper-slide>
+                        <swiper-slide><img src="{{ p.image.url }}" alt="Image" class="rounded-2xl h-[400px] w-full object-cover"></swiper-slide>
                     {% endfor %}
 
                 </swiper-container>
@@ -137,8 +137,8 @@
             
             <div class="flex flex-col gap-5">
                 {% if property.gallery.all|length > 0 %}
-                    <img src="{{ property.gallery.all.0.image.url }}" alt="Image" class="rounded-2xl">
-                    <img src="{{ property.gallery.all.1.image.url }}" alt="Image" class="rounded-2xl">
+                    <img src="{{ property.gallery.all.0.image.url }}" alt="Image" class="rounded-2xl h-[400px] w-full object-cover">
+                    <img src="{{ property.gallery.all.1.image.url }}" alt="Image" class="rounded-2xl h-[400px] w-full object-cover">
                 {% endif %}
             </div>
         </div>
@@ -151,7 +151,7 @@
         cube-effect-slide-shadows="true" cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
 
             {% for p in property.gallery.all %}
-                <swiper-slide><img src="{{ p.image.url }}" alt="Image" class="rounded-2xl"></swiper-slide>
+                <swiper-slide><img src="{{ p.image.url }}" alt="Image" class="rounded-2xl h-[400px] w-full object-cover"></swiper-slide>
             {% endfor %}
             
         </swiper-container>
@@ -169,7 +169,10 @@
             <div class="grid sm:grid-cols-4 mt-10 gap-5">
                 {% for p in property.amenity.all %}
                     <div class="flex flex-col gap-2 sm:gap-5 h-full w-full sm:pr-3">
-                        <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full" src="{{ p.amentity_image.url }}" alt="">
+                        <div class="h-[220px] w-full">
+
+                            <img class="rounded-2xl transition-transform duration-300 hover:-translate-y-2 h-full w-full object-cover" src="{{ p.amentity_image.url }}" alt="">
+                        </div>
                         <p class="text-[23px] sm:text-[26px] roboto">{{ p.amentity }}</p>
                     </div>
                 {% endfor %}
@@ -226,10 +229,9 @@
                     <div class="flex flex-col gap-3 sm:gap-10">
                         <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">Dining</h1>
                         <p class="text-[25px] sm:text-[60px] heading">A Culinary Journey of Elegance & Flavor</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac ligula vel justo suscipit eleifend. </p>
                         <div class="flex justify-center items-center">
                             <div class=" mt-10 roboto px-5 py-2 bg-green-500/30 font-medium text-black/80 rounded-full text-center hover:bg-blue-50 hover:text-black duration-300 animate-bounce">
-                                <a class="" href="#">See Menu</a>
+                                <a class="" href="/contact/">Contact us to Know More</a>
                             </div>
                         </div>
                     </div>
@@ -338,99 +340,7 @@
         </div>
     </div>
 
-    <div class="mx-5 sm:mx-20 my-10" id="contact">
-        <h1 class="text-[12px] sm:text-[16px] font-bold roboto font">CONTACT US</h1>
-        <p class="text-[25px] sm:text-[40px] heading mb-10">Book Your Stay – Experience Comfort & Luxury</p>
-
-        <div class="grid sm:grid-cols-3">
-            <div class="col-span-2">
-                <div class="flex flex-col gap-5">
-                    <div class="grid sm:grid-cols-2 gap-5">
-                        <div class="flex flex-col sm:flex-row gap-5">
-                            <div class="w-full">
-                                <label for="first-name" class="block text-sm/6 font-semibold text-gray-900">First name</label>
-                                <div class="mt-2.5">
-                                <input type="text" name="first-name" id="first-name" placeholder="Bruno" autocomplete="given-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
-                                </div>
-                            </div>
-                            <div class="w-full">
-                                <label for="last-name" class="block text-sm/6 font-semibold text-gray-900">Last name</label>
-                                <div class="mt-2.5">
-                                <input type="text" name="last-name" id="last-name" placeholder="Mars" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full">
-                            <label for="email" class="block text-sm/6 font-semibold text-gray-900">Email</label>
-                            <div class="mt-2.5">
-                                <input type="email" name="email" id="email" placeholder="example123@gmail.com" autocomplete="email" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="grid sm:grid-cols-2 gap-5">
-                        <div class="flex gap-5"> 
-                            <div class="border-b border-r-0 sm:border-b-0 sm:border-r border-white/30 w-full">
-                                <p class="mb-2 block text-sm/6 font-semibold text-gray-900">Check In</p>
-                                <div class="relative max-w-sm">
-                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 1 0 0-2Z"/>
-                                        </svg>
-                                    </div>
-                                    <input id="checkin-date" type="text" class="bg-transparent border text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full ps-10 p-2.5 border-black/20" placeholder="Select date">
-                                </div>
-                            </div>
-                            <div class="border-b border-r-0 sm:border-b-0 sm:border-r border-white/30 w-full">
-                                <p class="mb-2 block text-sm/6 font-semibold text-gray-900">Check Out</p>
-                                <div class="relative max-w-sm">
-                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 1 0 0-2Z"/>
-                                        </svg>
-                                    </div>
-                                    <input id="checkin-date" type="text" class="bg-transparent border text-gray-900 text-sm rounded-lg focus:ring-blue-500 block w-full ps-10 p-2.5 border-black/20" placeholder="Select date">
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="flex gap-5">
-                            <div class="w-full">
-                                <label for="guests" class="block text-sm/6 font-semibold text-gray-900">Number of Guest's</label>
-                                <div class="mt-2.5">
-                                    <input type="email" name="email" id="email" placeholder="eg:5" autocomplete="guests" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
-                                </div>
-                            </div>
-                            <div class="w-full">
-                                <label for="phn" class="block text-sm/6 font-semibold text-gray-900">Phone no</label>
-                                <div class="mt-2.5">
-                                    <input type="email" name="email" id="email" placeholder="+91 7373069866" autocomplete="phn" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    
-                    <div class="w-full">
-                        <label for="message" class="block text-sm/6 font-semibold text-gray-900">Message</label>
-                        <div class="mt-2.5">
-                            <input type="text" name="last-name" id="last-name" placeholder="" autocomplete="family-name" class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black h-[150px] sm:h-[250px]">
-                        </div>
-                    </div>
-    
-                    <button type="submit" class="bg-green-500/30 hover:bg-blue-50 text-black font-semibold py-2 px-4 rounded-md transition duration-300 cursor-pointer w-[150px]">
-                        Submit
-                    </button>
-    
-                </div>
-            </div>
-            <div class="col-span-1">
-                <img class="h-[550px] hidden sm:block" src="https://bootstrapmade.com/content/demo/Blogy/assets/img/cta/cta-1.webp" alt="">
-            </div>
-        </div>
-
-        
-    </div>
+   
 
 
 
