@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body class="overflow-x-hidden">
-    <header>
+    {% comment %} <header>
         <div class="h-screen sm:h-[110vh] bg-[url(/static/images/img-22.jpg)] bg-cover bg-center relative">
             <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
             <div class="absolute top-0 z-10">
@@ -72,6 +72,88 @@
                         <a class="border border-white/50 rounded-full px-5 py-2 w-[80px] flex justify-center items-center hover:border-orange-300 hover:text-orange-300 transition ease-in duration-300" href="">More</a>
                     </div>
                 </div>
+            </div>
+            <div class="absolute bottom-0">
+                <img class="w-screen" src="{% static "images/bg-nav.png" %}" alt="">
+            </div>
+        </div>
+    </header> {% endcomment %}
+
+    <header>
+        <div class="h-screen sm:h-[110vh] bg-cover bg-center relative">
+
+            <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover">
+                <source src="{% static "images/bg-vid-3.mp4" %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        
+            <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+
+            <div class="absolute top-0 z-10">
+                <div class="flex flex-col">
+                    <div class="h-[100px] bg-white w-screen px-5 sm:px-20 flex justify-between items-center text-[12px] font-bold text-black/70">
+                        <div class="hidden md:flex gap-5">
+                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="">HOME</a>
+                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="#boating">BOATING</a>
+                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="#home">HOME STAY</a>
+                            <a class="hover:text-black transition ease-in duration-300 hover:text-shadow" href="contact/">CONTACT US</a>
+                        </div>
+                        <img class="h-[100px]" src="{% static "images/jh.png" %}" alt="">
+
+                        <div class="fixed top-0 left-0 h-[270px] w-full bg-white px-5 py-2 text-black text-[12px] font-medium shadow-lg 
+                    transform -translate-y-full transition-transform duration-300 ease-in-out flex flex-col gap-5" id="menu">
+                        <div class="flex justify-between items-center">
+                            <img class="h-[70px]" src="{% static 'images/jh.png' %}" alt="">
+                            <i class="ri-close-fill text-[25px]" id="closeIcon"></i>
+                        </div>
+                        <div class="flex flex-col gap-5 py-5">
+                            <a class="hover:text-white transition duration-300" href="">HOME</a>
+                            <a class="hover:text-white transition duration-300" href="#boating">BOATING</a>
+                            <a class="hover:text-white transition duration-300" href="#home">HOME STAY</a>
+                            <a class="hover:text-white transition duration-300" href="contact/">CONTACT US</a>
+                        </div>
+                    </div>
+
+                    <div class="flex md:hidden transition duration-300 text-black" id="menuIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                          </svg>                          
+                    </div>
+                    </div>
+
+                    
+
+                    <div class="">
+                        <img class="w-screen" src="{% static "images/bg-sldr.png" %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute text-white flex h-full justify-center items-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 mx-5 mt-30 sm:mx-20 sm:my-0 gap-10 sm:gap-0">
+                    <div class="flex flex-col gap-10 sm:gap-5 mb-5 sm:mb-0">
+                        <h1 class="text-[30px] sm:text-[50px] text-left heading">
+                            JC’S Holidays, your trusted partner in providing exceptional travel experiences.
+                        </h1>
+                        <div class="w-[150px] bg-white/50 text-black px-7 py-3 rounded-full hover:bg-black/50 hover:text-white transition duration-300 text-[12px] font-medium flex justify-between items-center">
+                            <a href="#contact">
+                                CONTACT US
+                            </a>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                            </svg>
+                                                            
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-end gap-10 sm:gap-5">
+                        <div class="hidden sm:flex gap-5 justify-end heading">
+                            <h1> &#10004; Luxury Stays</h1>
+                            <h1> &#10004; Gourmet Dining</h1>
+                            <h1> &#10004; Exclusive Experiences</h1>
+                        </div>
+                        <p class="text-left text-white/50">Experience unmatched luxury and serenity at Celestre – where elegance, comfort, and breathtaking landscapes create unforgettable memories</p>
+                    </div>
+                </div>    
             </div>
             <div class="absolute bottom-0">
                 <img class="w-screen" src="{% static "images/bg-nav.png" %}" alt="">
