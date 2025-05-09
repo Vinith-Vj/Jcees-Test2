@@ -249,12 +249,6 @@
   .col-span-3 {
     grid-column: span 3 / span 3;
   }
-  .mx-0 {
-    margin-inline: calc(var(--spacing) * 0);
-  }
-  .mx-2 {
-    margin-inline: calc(var(--spacing) * 2);
-  }
   .mx-5 {
     margin-inline: calc(var(--spacing) * 5);
   }
@@ -284,9 +278,6 @@
   }
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
-  }
-  .mt-6 {
-    margin-top: calc(var(--spacing) * 6);
   }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
@@ -985,16 +976,6 @@
   .sm\:col-span-2 {
     @media (width >= 40rem) {
       grid-column: span 2 / span 2;
-    }
-  }
-  .sm\:mx-0 {
-    @media (width >= 40rem) {
-      margin-inline: calc(var(--spacing) * 0);
-    }
-  }
-  .sm\:mx-10 {
-    @media (width >= 40rem) {
-      margin-inline: calc(var(--spacing) * 10);
     }
   }
   .sm\:mx-20 {
