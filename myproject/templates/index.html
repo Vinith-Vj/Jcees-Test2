@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="{% static "images/jhfavicon.png" %}" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -80,6 +81,20 @@
             </div>
         </div>
     </header> {% endcomment %}
+
+    <div class="fixed bottom-10 right-5 z-10">
+        <div class="relative">
+          <!-- Pulse Circle -->
+          <span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
+      
+          <!-- WhatsApp Button -->
+          <div class="relative bg-[#24cc63] rounded-full h-[50px] w-[50px] flex justify-center items-center">
+            <a href="https://wa.me/9895612402" target="_blank" class="flex gap-2 items-center">
+              <i class="ri-whatsapp-line text-white text-[30px]"></i>
+            </a>
+          </div>
+        </div>
+    </div>
 
     <header>
         <div class="h-screen sm:h-[110vh] bg-cover bg-center relative">
@@ -217,7 +232,7 @@
             </div>
         </div>
         
-        <div class="grid sm:grid-cols-3 gap-10 my-10" id="boating">
+        <div class="grid sm:grid-cols-3 gap-10 my-10">
             
             <div class="flex gap-5 justify-center items-center">
                 <div class="">
@@ -286,7 +301,7 @@
     </div>
 
 
-    <div class="mx-5 sm:mx-40 my-10 sm:my-20 con">
+    <div class="mx-5 sm:mx-40 my-10 sm:my-20 con" id="boating">
         <div class="col-span-3">
             <div class="">
                 <h4 class="">JC'S Holidays</h4>
@@ -493,11 +508,9 @@
         <!-- Social media links -->
         <div class="mt-12 border-t border-gray-700 pt-8">
             <div class="flex justify-between items-center flex-col md:flex-row">
-              <div class="flex space-x-6 mb-4 md:mb-0">
-                <a href="{{ social_github|default:'#' }}" class="text-black/70 hover:text-white transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.163 6.839 9.489.5.09.682-.217.682-.48 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.022A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.291 2.747-1.022 2.747-1.022.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.933.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.577.688.48C19.138 20.16 22 16.42 22 12c0-5.523-4.477-10-10-10z" />
-                  </svg>
+              <div class="flex space-x-6 mb-4 md:mb-0 justify-between items-center">
+                <a href="https://wa.me/9895612402" target="_blank" class="">
+                    <i class="ri-whatsapp-line text-black/70 text-[25px] hover:text-white transition-colors"></i>
                 </a>
                 <a href="{{ social_twitter|default:'#' }}" class="text-black/70 hover:text-white transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

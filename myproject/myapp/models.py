@@ -185,7 +185,7 @@ class ThumbnailImages(models.Model):
     
 class PropertyDetails(models.Model):
     section = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='detail')
-    video = models.FileField(upload_to='property/')
+    video = models.FileField(upload_to='property/', blank=True, null=True)
     heading = models.CharField(max_length=250)
     bullet_point_heading = models.CharField(max_length=250)
 
